@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "#entreprise",
+      "name": "Menuiserie Jean-Yves Chrétien",
+      "alternateName": "Menuiserie JY Chrétien",
+      "description": "Menuisier poseur à Dieulouard (Meurthe-et-Moselle) depuis 2011 : fourniture et pose de fenêtres, baies vitrées, portes d'entrée, volets, stores bannes, portes de garage, portails et garde-corps en aluminium, bois et PVC, en neuf et en rénovation.",
+      "image": "/assets/logo-jy-chretien.jpeg",
+      "logo": "/assets/logo-jy-chretien.jpeg",
+      "telephone": "+33383241772",
+      "email": "chretien.jy@wanadoo.fr",
+      "foundingDate": "2011",
+      "founder": { "@type": "Person", "name": "Jean-Yves Chrétien" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 avenue Charles Roth",
+        "postalCode": "54380",
+        "addressLocality": "Dieulouard",
+        "addressRegion": "Grand Est",
+        "addressCountry": "FR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.8436, "longitude": 6.0667 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30" }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Dieulouard" },
+        { "@type": "City", "name": "Pont-à-Mousson" },
+        { "@type": "City", "name": "Nancy" },
+        { "@type": "City", "name": "Metz" },
+        { "@type": "City", "name": "Toul" },
+        { "@type": "City", "name": "Frouard" },
+        { "@type": "City", "name": "Pompey" },
+        { "@type": "City", "name": "Nomeny" },
+        { "@type": "City", "name": "Liverdun" },
+        { "@type": "City", "name": "Champigneulles" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Menuiseries",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de fenêtres" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de baies vitrées et portes-fenêtres" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portes d'entrée" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de volets roulants et battants" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de stores bannes" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portes de garage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portails et clôtures" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de garde-corps" } }
+        ]
+      },
+      "priceRange": "Devis gratuit"
+    },
+    {
+      "@type": "AboutPage",
+      "name": "La société",
+      "about": { "@id": "#entreprise" }
+    }
+  ]
+});
+---
+
+<Layout
+  title="Menuisier à Dieulouard depuis 2011 | Menuiserie Chrétien"
+  description="Menuiserie Jean-Yves Chrétien, SAS fondée en 2011 à Dieulouard (54) : fenêtres, portes et volets sur mesure, qualifiée RGE. Showroom entre Nancy et Metz."
+  schemaJson={schemaJson}
+>
+  <div style="font-family:'Sofia Sans',sans-serif;font-size:17px;line-height:1.55;color:#13243D;background:#fff">
+    <Header client:load currentPath="/societe" />
+
+    <section data-screen-label="Intro" style="max-width:1400px;margin:0 auto;padding:clamp(48px,6vw,96px) clamp(20px,4vw,56px) 0">
+      <div style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:end">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">La société</span>
+          <h1 style="margin:0;font:800 clamp(52px,6.4vw,100px)/.9 'Sofia Sans Condensed',sans-serif;letter-spacing:-.01em;text-wrap:balance">
+            Menuiserie Jean-Yves Chrétien, menuisier poseur à Dieulouard depuis 2011
+          </h1>
+          <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+        </div>
+        <p style="margin:0;max-width:460px;color:#34465E;text-wrap:pretty">
+          Menuiserie Jean-Yves Chrétien fournit et pose fenêtres, portes, volets, portails et fermetures en aluminium, bois et PVC, pour les particuliers, en construction comme en rénovation.
+        </p>
+      </div>
+      <div style="position:relative;height:clamp(380px,42vw,600px);background:#E6EEF7;border-radius:32px;overflow:hidden;margin-top:clamp(40px,5vw,64px)">
+        <img src="/assets/showroom-interieur-2.jpg" alt="Intérieur du showroom" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </div>
+    </section>
+
+    <section id="dirigeant" data-screen-label="Dirigeant" style="max-width:1400px;margin:0 auto;padding:clamp(80px,9vw,140px) clamp(20px,4vw,56px) 0">
+      <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,4vw,72px);align-items:start">
+        <div style="display:flex;flex-direction:column;gap:22px;grid-column:1 / span 2;max-width:720px">
+          <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">01 — Le dirigeant</span>
+          <h2 style="margin:0;font:700 clamp(36px,3.6vw,54px)/.98 'Sofia Sans Condensed',sans-serif;text-wrap:balance">Jean-Yves Chrétien, sur chaque chantier</h2>
+          <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+          <p style="margin:0;color:#34465E;text-wrap:pretty">
+            Jean-Yves Chrétien a fondé l'entreprise en 2011. Il se déplace pour chaque visite, conseille sur le choix des produits, établit le devis et supervise l'équipe de pose. Vous gardez le même interlocuteur du début à la fin.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="entreprise" data-screen-label="Entreprise" style="max-width:1400px;margin:0 auto;padding:clamp(80px,9vw,140px) clamp(20px,4vw,56px) 0">
+      <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,72px);align-items:start">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">02 — L'entreprise</span>
+          <h2 style="margin:0;font:700 clamp(36px,3.6vw,54px)/.98 'Sofia Sans Condensed',sans-serif;text-wrap:balance">Une entreprise locale, à taille humaine</h2>
+          <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+          <p style="margin:0;color:#34465E;text-wrap:pretty">
+            Créée en 2011 à Dieulouard, entre Nancy et Metz, la Menuiserie Jean-Yves Chrétien est spécialisée dans la fourniture et la pose de menuiseries extérieures pour les maisons individuelles, en rénovation comme en construction neuve.
+          </p>
+          <p style="margin:0;color:#34465E;text-wrap:pretty">
+            Chaque produit est fabriqué sur mesure après un relevé précis sur place, puis posé, réglé et contrôlé par l'équipe de menuisiers de l'entreprise.
+          </p>
+          <p style="margin:0;color:#34465E;text-wrap:pretty">
+            Elle est qualifiée Qualibat RGE pour la pose de fenêtres, volets et portes donnant sur l'extérieur, et assurée en responsabilité décennale pour la menuiserie extérieure et la serrurerie-métallerie.
+          </p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">DEPUIS</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">2011</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Quinze ans de chantiers autour de Dieulouard.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">CHANTIERS</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">Neuf et rénovation</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Remplacement de menuiseries existantes, maisons neuves, extensions.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">MATÉRIAUX</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">Aluminium, bois, PVC</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Choisis selon la maison, le budget et l'entretien souhaité.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">SECTEUR</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">Entre Nancy et Metz</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Pont-à-Mousson, Toul, Frouard, Nomeny et leurs environs.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">MÉTIERS</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">Menuiserie et métallerie</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Fenêtres, portes, volets, stores, portails, garde-corps.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px;padding:22px 24px">
+            <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em">QUALIFICATION</span>
+            <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">Qualibat RGE 3511</span>
+            <span style="font-size:14px;color:#4A5A70;text-wrap:pretty">Ouvre droit aux aides à la rénovation énergétique.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="showroom" data-screen-label="Showroom" style="max-width:1400px;margin:0 auto;padding:clamp(80px,9vw,140px) clamp(20px,4vw,56px) 0">
+      <div style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:center">
+        <div style="position:relative;height:clamp(340px,34vw,500px);background:#E6EEF7;border-radius:28px;overflow:hidden">
+          <img src="/assets/showroom-exterieur.jpg" alt="Façade du showroom" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">03 — Le showroom</span>
+          <h2 style="margin:0;font:700 clamp(36px,3.6vw,54px)/.98 'Sofia Sans Condensed',sans-serif;text-wrap:balance">Venir voir les produits avant de choisir</h2>
+          <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+          <p style="margin:0;color:#34465E;text-wrap:pretty">
+            Au showroom, vous comparez les matériaux, les couleurs et les poignées, et vous manipulez les ouvertures.
+          </p>
+          <span style="font:700 20px/1.3 'Sofia Sans Condensed',sans-serif">
+            24 avenue Charles Roth, 54380 Dieulouard<br />Lun – Ven 9h – 17h30
+          </span>
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=24+avenue+Charles+Roth+54380+Dieulouard"
+            target="_blank"
+            rel="noopener"
+            style="align-self:flex-start;border:1px solid #13243D;color:#13243D;padding:13px 20px;border-radius:999px;font:700 15px/1 'Sofia Sans',sans-serif;transition:background 0.2s, color 0.2s"
+            onmouseenter="this.style.background='#13243D'; this.style.color='#fff';"
+            onmouseleave="this.style.background='transparent'; this.style.color='#13243D';"
+          >
+            Itinéraire →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="identite" data-screen-label="Identité" style="max-width:1400px;margin:0 auto;padding:clamp(80px,9vw,140px) clamp(20px,4vw,56px) 0">
+      <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,80px);align-items:start">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">04 — Fiche entreprise</span>
+          <h2 style="margin:0;font:700 clamp(36px,3.6vw,54px)/.98 'Sofia Sans Condensed',sans-serif;text-wrap:balance">Informations légales</h2>
+          <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+          <a href="/qualifications" style="align-self:flex-start;margin-top:6px;font:700 15px 'Sofia Sans',sans-serif;color:#13243D;border-bottom:2px solid #2F70B4;padding-bottom:2px">
+            Qualifications et garanties →
+          </a>
+        </div>
+        <dl style="margin:0;display:flex;flex-direction:column;border-top:1px solid #D5DFEA">
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">RAISON SOCIALE</dt>
+            <dd style="margin:0;font-size:16px">Menuiserie Jean-Yves Chrétien</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">FORME JURIDIQUE</dt>
+            <dd style="margin:0;font-size:16px">SAS (société par actions simplifiée)</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">DIRIGEANT</dt>
+            <dd style="margin:0;font-size:16px">Jean-Yves Chrétien</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">CRÉATION</dt>
+            <dd style="margin:0;font-size:16px">2011</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">SIÈGE</dt>
+            <dd style="margin:0;font-size:16px">24 avenue Charles Roth, 54380 Dieulouard</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">SIRET</dt>
+            <dd style="margin:0;font-size:16px">538 049 081 00028</dd>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #D5DFEA">
+            <dt style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.04em;padding-top:3px">QUALIFICATION</dt>
+            <dd style="margin:0;font-size:16px">Qualibat RGE</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <ContactSection />
+    <Footer />
+  </div>
+</Layout>

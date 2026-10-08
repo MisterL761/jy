@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection.astro';
+import FranceRenovBanner from '../components/FranceRenovBanner.astro';
+import PromisesGrid from '../components/PromisesGrid.astro';
+import MenuiseriesSection from '../components/MenuiseriesSection';
+import RealisationsSection from '../components/RealisationsSection';
+import MethodSection from '../components/MethodSection.astro';
+import EntrepriseSectionHome from '../components/EntrepriseSectionHome.astro';
+import ZoneSection from '../components/ZoneSection.astro';
+import ReviewsSection from '../components/ReviewsSection';
+import FAQSection from '../components/FAQSection';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "#entreprise",
+      "name": "Menuiserie Jean-Yves Chrétien",
+      "alternateName": "Menuiserie JY Chrétien",
+      "description": "Menuisier poseur à Dieulouard (Meurthe-et-Moselle) depuis 2011 : fourniture et pose de fenêtres, baies vitrées, portes d'entrée, volets, stores bannes, portes de garage, portails et garde-corps en aluminium, bois et PVC, en neuf et en rénovation.",
+      "image": "/assets/logo-jy-chretien.jpeg",
+      "logo": "/assets/logo-jy-chretien.jpeg",
+      "telephone": "+33383241772",
+      "email": "chretien.jy@wanadoo.fr",
+      "foundingDate": "2011",
+      "founder": { "@type": "Person", "name": "Jean-Yves Chrétien" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 avenue Charles Roth",
+        "postalCode": "54380",
+        "addressLocality": "Dieulouard",
+        "addressRegion": "Grand Est",
+        "addressCountry": "FR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.8436, "longitude": 6.0667 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30" }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Dieulouard" },
+        { "@type": "City", "name": "Pont-à-Mousson" },
+        { "@type": "City", "name": "Nancy" },
+        { "@type": "City", "name": "Metz" },
+        { "@type": "City", "name": "Toul" },
+        { "@type": "City", "name": "Frouard" },
+        { "@type": "City", "name": "Pompey" },
+        { "@type": "City", "name": "Nomeny" },
+        { "@type": "City", "name": "Liverdun" },
+        { "@type": "City", "name": "Champigneulles" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Menuiseries",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de fenêtres" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de baies vitrées et portes-fenêtres" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portes d'entrée" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de volets roulants et battants" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de stores bannes" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portes de garage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de portails et clôtures" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fourniture et pose de garde-corps" } }
+        ]
+      },
+      "priceRange": "Devis gratuit"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le devis est-il vraiment gratuit ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Nous nous déplaçons chez vous pour prendre les mesures et étudier le projet, puis nous vous remettons un devis détaillé, sans engagement." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il refaire la maçonnerie pour changer mes fenêtres ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pas forcément. En rénovation, la pose sur le dormant existant évite les travaux de maçonnerie quand il est sain. Si ce n'est pas le cas, nous faisons une dépose totale. Nous vous conseillons la bonne solution lors de la visite." }
+        },
+        {
+          "@type": "Question",
+          "name": "Aluminium, PVC ou bois : que choisir ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Chaque matériau a ses atouts : le PVC pour son rapport qualité-prix et son entretien facile, l'aluminium pour la finesse des profils et les grandes baies, le bois pour son charme et l'harmonie avec les maisons anciennes. Nous comparons les options avec vous, selon votre maison et votre budget." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les délais ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les menuiseries sont fabriquées sur mesure : le délai dépend des produits et de la saison. Il est indiqué sur le devis, et nous fixons la date de pose avec vous dès la réception de la commande." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure la pose ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour une maison, la pose des fenêtres prend généralement une à quelques journées. Nous protégeons les sols, évacuons les anciennes menuiseries et laissons les lieux propres." }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je bénéficier d'aides financières ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Certains travaux d'isolation, comme le remplacement de fenêtres simple vitrage, peuvent ouvrir droit à des aides selon votre situation. Nous vous fournissons les documents nécessaires à vos démarches." }
+        },
+        {
+          "@type": "Question",
+          "name": "Intervenez-vous dans ma commune ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nous intervenons autour de Dieulouard, entre Nancy, Metz, Pont-à-Mousson et Toul. Consultez la carte ci-dessus ou appelez-nous pour vérifier." }
+        }
+      ]
+    }
+  ]
+});
+---
+
+<Layout
+  title="Menuisier à Dieulouard (54) – Fenêtres, portes, volets | JY Chrétien"
+  description="Menuiserie Jean-Yves Chrétien, menuisier poseur à Dieulouard depuis 2011. Fenêtres, portes d'entrée, volets, portails et garde-corps en alu, bois et PVC autour de Pont-à-Mousson, Nancy et Metz. Devis gratuit."
+  schemaJson={schemaJson}
+>
+  <div style="font-family:'Sofia Sans',sans-serif;font-size:17px;line-height:1.55;color:#13243D;background:#fff">
+    <Header client:load currentPath="/" />
+    <HeroSection />
+    <FranceRenovBanner />
+    <PromisesGrid />
+    <MenuiseriesSection client:load />
+    <RealisationsSection client:load />
+    <MethodSection />
+    <EntrepriseSectionHome />
+    <ZoneSection />
+    <ReviewsSection client:load />
+    <FAQSection client:load />
+    <ContactSection />
+    <Footer />
+  </div>
+</Layout>

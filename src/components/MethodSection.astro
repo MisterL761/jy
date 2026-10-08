@@ -1,0 +1,33 @@
+---
+const steps = [
+  { n: '01', t: 'Premier échange', d: 'Par téléphone, par e-mail ou au showroom : vous décrivez votre projet, nous fixons un rendez-vous.' },
+  { n: '02', t: 'Visite et étude', d: 'Nous mesurons chaque ouverture et vérifions l\'état des maçonneries et des menuiseries existantes.' },
+  { n: '03', t: 'Devis détaillé', d: 'Produits, finitions, délais et prix ligne par ligne, en concertation avec vous.' },
+  { n: '04', t: 'Pose et finitions', d: 'Dépose, pose, calfeutrement et habillages. Nous réglons tout avant de partir.' }
+];
+---
+
+<section data-screen-label="Méthode" style="padding:clamp(80px,9vw,140px) clamp(12px,1.5vw,20px) 0">
+  <div style="max-width:1480px;margin:0 auto;background:#F3F7FB;border-radius:36px;padding:clamp(56px,6vw,96px) clamp(20px,4vw,64px)">
+    <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,80px);align-items:end;margin-bottom:56px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#2F70B4;text-transform:uppercase">03 — Déroulement</span>
+        <h2 style="margin:0;font:700 clamp(38px,4vw,60px)/.95 'Sofia Sans Condensed',sans-serif;text-wrap:balance">De la première visite à la dernière finition</h2>
+        <div style="width:120px;height:6px;background:#2F70B4;border-radius:6px"></div>
+      </div>
+      <p style="margin:0;max-width:560px;color:#34465E">Jean-Yves Chrétien se déplace sur chaque chantier, participe à la conception du projet et supervise l'équipe de pose. Tous les produits sont réalisés sur mesure, après une étude précise sur place.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;margin-bottom:28px">
+      <span style="width:1px;height:14px;background:#2F70B4"></span><span style="flex:1;height:1px;background:#2F70B4"></span><span>UN SEUL INTERLOCUTEUR DU DÉBUT À LA FIN</span><span style="flex:1;height:1px;background:#2F70B4"></span><span style="width:1px;height:14px;background:#2F70B4"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+      {steps.map((s) => (
+        <div style="display:flex;flex-direction:column;gap:12px;background:#fff;border-radius:22px;padding:26px">
+          <span style="width:56px;height:56px;border-radius:50%;background:#2F70B4;color:#fff;display:flex;align-items:center;justify-content:center;font:800 22px/1 'Sofia Sans Condensed',sans-serif">{s.n}</span>
+          <span style="font:700 24px/1.1 'Sofia Sans Condensed',sans-serif">{s.t}</span>
+          <span style="font-size:15px;color:#4A5A70;text-wrap:pretty">{s.d}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Zone d'intervention</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@700;800&family=Sofia+Sans:wght@600&display=swap" rel="stylesheet">
+<style>
+html,body,#map{margin:0;height:100%;background:#E6EEF7}
+.leaflet-tile-pane{filter:grayscale(1) sepia(.25) hue-rotate(175deg) saturate(1.6) brightness(1.04) contrast(.92)}
+.lbl{background:#fff;border:0;border-radius:999px;box-shadow:0 4px 14px -6px rgba(19,36,61,.4);padding:6px 11px;font:600 13px 'Sofia Sans',sans-serif;color:#13243D}
+.lbl:before{display:none}
+.lbl.big{font:700 15px 'Sofia Sans Condensed',sans-serif;padding:7px 13px}
+.lbl.home{background:#D9262C;color:#fff;font:800 16px 'Sofia Sans Condensed',sans-serif;padding:8px 14px}
+.leaflet-control-attribution{font-size:10px}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+const home = [48.8436, 6.0681];
+const map = L.map('map', { scrollWheelZoom: false, zoomControl: true, attributionControl: true }).setView(home, 10);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap contributors' }).addTo(map);
+const zone = L.circle(home, { radius: 32000, color: '#2F70B4', weight: 2, dashArray: '6 6', fillColor: '#2F70B4', fillOpacity: .08 }).addTo(map);
+map.fitBounds(L.latLng(home).toBounds(64000), { padding: [10, 10] });
+const cities = [
+  ['Nancy', 48.6921, 6.1844, 'big', 'top'], ['Metz', 49.1193, 6.1757, 'big', 'top'],
+  ['Pont-à-Mousson', 48.9053, 6.0546, 'big', 'top'], ['Toul', 48.6753, 5.8915, 'big', 'top'],
+  ['Frouard', 48.7597, 6.1336, '', 'right'], ['Pompey', 48.7700, 6.1250, '', 'left'],
+  ['Champigneulles', 48.7339, 6.1661, '', 'right'], ['Liverdun', 48.7486, 6.0631, '', 'left'],
+  ['Nomeny', 48.8894, 6.2264, '', 'right'], ['Custines', 48.7914, 6.1458, '', 'right'],
+  ['Villey-Saint-Étienne', 48.7369, 5.9775, '', 'left'], ['Thiaucourt', 48.9561, 5.8619, '', 'left'],
+  ['Saint-Nicolas-de-Port', 48.6339, 6.2994, '', 'right']
+];
+cities.forEach(([n, la, lo, cls, dir]) => {
+  L.circleMarker([la, lo], { radius: cls ? 6 : 4.5, color: '#fff', weight: 2, fillColor: '#2F70B4', fillOpacity: 1 })
+    .addTo(map).bindTooltip(n, { permanent: true, direction: dir, offset: dir === 'left' ? [-8, 0] : dir === 'right' ? [8, 0] : [0, -8], className: 'lbl ' + cls });
+});
+L.circleMarker(home, { radius: 9, color: '#fff', weight: 3, fillColor: '#D9262C', fillOpacity: 1 })
+  .addTo(map).bindTooltip('Dieulouard · Showroom', { permanent: true, direction: 'right', offset: [12, 0], className: 'lbl home' });
+</script>
+</body>
+</html>

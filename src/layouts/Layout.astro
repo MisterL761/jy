@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  schemaJson?: string;
+}
+
+const { title, description = "Menuiserie Jean-Yves Chrétien, menuisier poseur à Dieulouard depuis 2011.", schemaJson } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  
+  <!-- SEO -->
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="FR-54" />
+  <meta name="geo.placename" content="Dieulouard" />
+  <meta name="geo.position" content="48.8436;6.0667" />
+  <meta name="ICBM" content="48.8436, 6.0667" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Menuiserie Jean-Yves Chrétien" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/assets/logo-jy-chretien.jpeg" />
+  
+  {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@400;500;600;700;800&family=Sofia+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style is:global>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #13243D;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    a {
+      color: #2F70B4;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #13243D;
+    }
+    button {
+      font: inherit;
+    }
+    ::selection {
+      background: #2F70B4;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <slot />
+</body>
+</html>

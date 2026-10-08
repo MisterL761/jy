@@ -1,0 +1,20 @@
+---
+const promises = [
+  { k: 'VISITE', t: 'Devis gratuit à domicile', d: 'Étude précise de votre projet, sur place et sans engagement.' },
+  { k: 'SUIVI', t: 'Le dirigeant sur chaque chantier', d: 'Jean-Yves Chrétien coordonne les travaux et supervise l\'équipe.' },
+  { k: 'SUR MESURE', t: 'Neuf et rénovation', d: 'Aluminium, bois et PVC, adaptés à votre habitat.' },
+  { k: 'RGE', t: 'Qualibat RGE', d: 'Des installations pensées pour la performance énergétique.' }
+];
+---
+
+<section style="max-width:1400px;margin:0 auto;padding:clamp(40px,4vw,64px) clamp(20px,4vw,56px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+    {promises.map((g) => (
+      <div style="padding:24px;display:flex;flex-direction:column;gap:6px;background:#F3F7FB;border-radius:20px">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;letter-spacing:.06em">{g.k}</span>
+        <span style="font:700 22px/1.1 'Sofia Sans Condensed',sans-serif">{g.t}</span>
+        <span style="font-size:14px;color:#4A5A70">{g.d}</span>
+      </div>
+    ))}
+  </div>
+</section>
