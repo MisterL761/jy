@@ -9,6 +9,8 @@ const products = [
   { n: '06', name: 'Portes de garage', mat: 'Acier · Aluminium · Bois', anchor: 'produit-06' },
   { n: '07', name: 'Portails & clôtures', mat: 'Aluminium · PVC', anchor: 'produit-07' },
   { n: '08', name: 'Garde-corps', mat: 'Aluminium · Verre · Inox', anchor: 'produit-08' },
+  { n: '09', name: 'Pergolas', mat: 'Aluminium', anchor: 'produit-09' },
+  { n: '10', name: 'Moustiquaires', mat: 'Aluminium · Toile', anchor: 'produit-10' },
 ];
 
 interface HeaderProps {
@@ -38,7 +40,7 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '10px clamp(20px, 4vw, 56px)', display: 'flex', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
           <span>Menuisier poseur à Dieulouard · Pont-à-Mousson, Frouard, Nomeny et alentours</span>
           <span style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-            <span>Lun – Ven 9h – 17h30</span>
+            <span>Lun – Ven 9h – 17h30 · Sam sur rendez-vous</span>
             <span>Devis gratuit à domicile</span>
           </span>
         </div>
@@ -52,6 +54,17 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
           </a>
 
           <nav style={{ display: 'flex', gap: 'clamp(16px, 2.2vw, 30px)', alignItems: 'center', flex: 1, minWidth: 0, overflow: 'hidden', font: "600 15px/1 'Sofia Sans', sans-serif", flexWrap: 'nowrap', whiteSpace: 'nowrap' }}>
+            <a
+              href="/"
+              style={{
+                color: currentPath === '/' ? '#2F70B4' : '#13243D',
+                borderBottom: currentPath === '/' ? '2px solid #2F70B4' : 'none',
+                paddingBottom: currentPath === '/' ? '4px' : '0'
+              }}
+            >
+              Accueil
+            </a>
+
             <button
               onMouseEnter={openMenu}
               onClick={openMenu}
@@ -92,12 +105,6 @@ export default function Header({ currentPath = '/' }: HeaderProps) {
             >
               La société
             </a>
-
-            {wide && (
-              <a href="/#avis" style={{ color: '#13243D' }}>
-                Avis clients
-              </a>
-            )}
           </nav>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '22px', flexShrink: 0 }}>

@@ -8,7 +8,9 @@ const productsData = [
   { n: '05', key: 'Store banne', name: 'Stores bannes', mats: ['Aluminium', 'Toile'], typesLabel: 'TYPES', types: ['Stores bannes coffres', 'Stores monoblocs', 'Manuels ou motorisés'], desc: 'Un store banne protège la terrasse du soleil et garde la maison plus fraîche. Nous choisissons avec vous la toile, la couleur et l\'avancée adaptées à votre façade.', img: '/assets/store-banne-1.jpg', img2: '/assets/store-banne-2b.jpg' },
   { n: '06', key: 'Porte de garage', name: 'Portes de garage', mats: ['Acier', 'Aluminium', 'Bois'], typesLabel: 'TYPES', types: ['Sectionnelles', 'Enroulables', 'Battantes ou basculantes'], desc: 'Portes isolées et motorisées, assorties à la porte d\'entrée et aux fenêtres pour une façade cohérente.', img: '/assets/porte-garage-1.jpg', img2: '/assets/porte-garage-2.jpg' },
   { n: '07', key: 'Portail / clôture', name: 'Portails & clôtures', mats: ['Aluminium', 'PVC'], typesLabel: 'TYPES', types: ['Portails battants', 'Portails coulissants', 'Portillons, clôtures, motorisation'], desc: 'Portails, portillons et clôtures dessinés ensemble, avec motorisation et contrôle d\'accès si vous le souhaitez.', img: '/assets/portail-1.jpg', img2: '/assets/cloture-1.jpg' },
-  { n: '08', key: 'Garde-corps', name: 'Garde-corps', mats: ['Aluminium', 'Verre', 'Inox'], typesLabel: 'USAGES', types: ['Balcons et terrasses', 'Escaliers', 'Fenêtres basses'], desc: 'Des garde-corps sûrs et discrets, à barreaudage ou vitrés, adaptés à la façade et aux normes en vigueur.', img: '/assets/garde-corps-1.jpg', img2: '/assets/garde-corps-2.jpg' }
+  { n: '08', key: 'Garde-corps', name: 'Garde-corps', mats: ['Aluminium', 'Verre', 'Inox'], typesLabel: 'USAGES', types: ['Balcons et terrasses', 'Escaliers', 'Fenêtres basses'], desc: 'Des garde-corps sûrs et discrets, à barreaudage ou vitrés, adaptés à la façade et aux normes en vigueur.', img: '/assets/garde-corps-1.jpg', img2: '/assets/garde-corps-2.jpg' },
+  { n: '09', key: 'Pergola', name: 'Pergolas', mats: ['Aluminium'], typesLabel: 'TYPES', types: ['Pergolas adossées ou autoportantes', 'Toiture à lames orientables ou toile', 'Fermetures latérales et éclairage LED'], desc: 'Une pergola prolonge la maison vers l\'extérieur : terrasse protégée du soleil et de la pluie, utilisable plus longtemps dans l\'année. Nous étudions l\'implantation, la structure et les options sur place avant la pose.' },
+  { n: '10', key: 'Moustiquaire', name: 'Moustiquaires', mats: ['Aluminium', 'Toile'], typesLabel: 'TYPES', types: ['Enroulables', 'Plissées', 'À cadre fixe ou coulissant'], desc: 'Pour aérer sans laisser entrer les insectes : des moustiquaires sur mesure pour fenêtres, portes-fenêtres et baies vitrées, discrètes et simples à manœuvrer.' },
 ];
 
 export default function MenuiseriesSection() {
@@ -70,6 +72,7 @@ export default function MenuiseriesSection() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(72px, 8vw, 120px)' }}>
           {productsData.map((p, i) => (
             <article key={p.n} id={`produit-${p.n}`} style={{ scrollMarginTop: '120px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
+              {p.img && (
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <div style={{ position: 'relative', flex: '1 1 0', minWidth: 0, height: 'clamp(320px, 32vw, 460px)', background: '#F3F7FB', borderRadius: '24px', overflow: 'hidden', order: i % 2 ? 2 : 1 }}>
                   <img src={p.img} alt={`Photo : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
@@ -78,6 +81,7 @@ export default function MenuiseriesSection() {
                   <img src={p.img2} alt={`Détail : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
                 </div>
               </div>
+              )}
 
               <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 6fr) minmax(0, 5fr)', gap: 'clamp(24px, 4vw, 56px)', alignItems: 'start' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
