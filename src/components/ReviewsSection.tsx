@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
 
 const reviews = [
-  { q: 'Le devis était clair, la pose s\'est faite en deux jours comme prévu et l\'équipe a laissé la maison propre. On sent la différence dans le séjour dès les premiers froids.', who: 'M. et Mme L.', where: '', what: 'Fenêtres PVC' },
-  { q: 'De bons conseils pour choisir la porte d\'entrée, sans pousser vers le plus cher. Un réglage a été refait quelques semaines après, sans que j\'aie à relancer.', who: 'Sophie R.', where: '', what: 'Porte d\'entrée aluminium' },
-  { q: 'Portail motorisé et clôture posés ensemble. Chantier bien organisé, et un interlocuteur joignable du premier rendez-vous jusqu\'à la mise en service.', who: 'Didier M.', where: '', what: 'Portail et clôture' }
+  { q: "2 chantiers avec vous avec toujours le même souci : de la définition du besoin, la réponse commerciale jusqu'à la réalisation chialée. ( chialé est peut-être du patois lorrain signifiant dans les moindres détails.) Mention spéciale aux monteurs qui sont très pros et respectueux à domicile. Bref vous pouvez les solliciter. Vous ne serez pas déçu.", who: "Serge S.", where: 'Avis Google', what: "Deux chantiers" },
+  { q: "Le portail et la clôture fournis par la menuiserie Chrétien sont de très belle qualité, fidèles à notre commande, et très bien posés malgré nos murets abîmés ! Excellente qualité d'écoute, conseils judicieux. Bravo et merci !", who: "Sandra F.", where: 'Avis Google', what: "Portail et clôture" },
+  { q: "Après deux réalisations effectuées avec l'entreprise Menuiserie Chrétien je recommande vivement cette entreprise. Le conseil et la qualité Des produits proposés m'ont permis d'améliorer considérablement mon isolation thermique. Très bon rapport / qualité prix. Encore merci à toute l'équipe. À bientôt pour d'autres travaux.", who: "Mickael B.", where: 'Avis Google', what: "Isolation thermique" },
+  { q: "Professionnel très sérieux et à l'écoute de nos demandes et besoins. Je recommande vivement. Installation d'une porte d'entrée et porte de garage sectionnelle", who: "Virginie C.", where: 'Avis Google', what: "Porte d'entrée et porte de garage" },
+  { q: "Excellent conseil, et accueil en magasin ainsi que tout le suivi administratif de notre dossier. Pose soignée. Nous sommes extrêmement satisfaits du garde corps fourni et posé par l'entreprise CHRÉTIEN.", who: "Mt54", where: 'Avis Google', what: "Garde-corps" },
+  { q: "Pour faciliter passage terrasse, réfection seuil, et pose volets roulant et porte fenêtre. Rapidité, efficacité, fait selon notre demande. Merci", who: "Ivan P.", where: 'Avis Google', what: "Seuil, volets roulants et porte-fenêtre" },
+  { q: "Super fenêtre et porte fenêtre plus volets solaire . Je recommande, pas déçu du résultat 👍", who: "Riquet L.", where: 'Avis Google', what: "Fenêtres, porte-fenêtre et volets solaires" },
+  { q: "Très satisfaite de la pose de ma porte d'entrée. Comparé à d'autres entreprises, j'ai trouvé exactement ce que je voulais et les prix sont très raisonnables. De plus j'avais une pièce à changer sur un volet, ce qui a été fait en même temps. Poseur sympa et très professionnel.", who: "Mzd J.", where: 'Avis Google', what: "Porte d'entrée" },
+  { q: "Commande et installation d'une porte de grange sectionnelle motorisée ainsi qu'une porte d'entrée. Pose rapide et sérieuse, très satisfait du travail", who: "Marchi C.", where: 'Avis Google', what: "Porte sectionnelle et porte d'entrée" },
+  { q: "Pose de trois fenêtres, d'un volet électrique et d'une porte de service sécurisée par une équipe sympathique et professionnelle 👍", who: "Alexandre G.", where: 'Avis Google', what: "Fenêtres, volet électrique et porte de service" },
+  { q: "Très bien à l'écoute et très bon accueil. Travail de très bonne qualité ainsi que les matériaux utilisés. Je recommande.", who: "Bruno C.", where: 'Avis Google', what: "" },
+  { q: "Menuiseries avec un bon rapport qualité / prix. Travail soigné de la part des poseurs. Rien à redire", who: "Vincent D.", where: 'Avis Google', what: "Menuiseries" },
+  { q: "Qualité des produits, compétent, sérieux et sympathique. Je recommande", who: "Andre T.", where: 'Avis Google', what: "" },
+  { q: "Très professionnel, rapide, travail très propre. Je recommande.", who: "Aymeric G.", where: 'Avis Google', what: "" },
+  { q: "Très bonne équipe, travail de professionnel, je recommande vivement.", who: "Mickael B.", where: 'Avis Google', what: "" },
+  { q: "Impeccable - 10/10 - nickel", who: "Edwige N.", where: 'Avis Google', what: "" },
+  { q: "Parfait. Pose impeccable.", who: "Clo K.", where: 'Avis Google', what: "Pose" },
+  { q: "Tout correspond à nos attentes, merci", who: "Jean-Claude C.", where: 'Avis Google', what: "" },
+  { q: "Au top ! Je recommande", who: "Thomas R.", where: 'Avis Google', what: "" }
 ];
 
 export default function ReviewsSection() {
@@ -58,9 +74,11 @@ export default function ReviewsSection() {
           <figcaption style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
             <span style={{ font: "700 17px 'Sofia Sans', sans-serif" }}>{currentRev.who}</span>
             {currentRev.where && <span style={{ font: "500 12px 'IBM Plex Mono', monospace", color: '#4A5A70' }}>{currentRev.where}</span>}
-            <span style={{ background: '#fff', color: '#13243D', font: "600 13px/1 'Sofia Sans', sans-serif", padding: '8px 14px', borderRadius: '999px' }}>
-              {currentRev.what}
-            </span>
+            {currentRev.what && (
+              <span style={{ background: '#fff', color: '#13243D', font: "600 13px/1 'Sofia Sans', sans-serif", padding: '8px 14px', borderRadius: '999px' }}>
+                {currentRev.what}
+              </span>
+            )}
           </figcaption>
         </figure>
       </div>

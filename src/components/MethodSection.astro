@@ -20,7 +20,7 @@ const steps = [
     <div style="display:flex;align-items:center;gap:10px;font:500 11px 'IBM Plex Mono',monospace;color:#2F70B4;margin-bottom:28px">
       <span style="width:1px;height:14px;background:#2F70B4"></span><span style="flex:1;height:1px;background:#2F70B4"></span><span>UN SEUL INTERLOCUTEUR DU DÉBUT À LA FIN</span><span style="flex:1;height:1px;background:#2F70B4"></span><span style="width:1px;height:14px;background:#2F70B4"></span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+    <div data-stagger="220" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
       {steps.map((s) => (
         <div style="display:flex;flex-direction:column;gap:12px;background:#fff;border-radius:22px;padding:26px">
           <span style="width:56px;height:56px;border-radius:50%;background:#2F70B4;color:#fff;display:flex;align-items:center;justify-content:center;font:800 22px/1 'Sofia Sans Condensed',sans-serif">{s.n}</span>

@@ -9,9 +9,38 @@ const productsData = [
   { n: '06', key: 'Porte de garage', name: 'Portes de garage', mats: ['Acier', 'Aluminium', 'Bois'], typesLabel: 'TYPES', types: ['Sectionnelles', 'Enroulables', 'Battantes ou basculantes'], desc: 'Portes isolées et motorisées, assorties à la porte d\'entrée et aux fenêtres pour une façade cohérente.', img: '/assets/porte-garage-1.jpg', img2: '/assets/porte-garage-2.jpg' },
   { n: '07', key: 'Portail / clôture', name: 'Portails & clôtures', mats: ['Aluminium', 'PVC'], typesLabel: 'TYPES', types: ['Portails battants', 'Portails coulissants', 'Portillons, clôtures, motorisation'], desc: 'Portails, portillons et clôtures dessinés ensemble, avec motorisation et contrôle d\'accès si vous le souhaitez.', img: '/assets/portail-1.jpg', img2: '/assets/cloture-1.jpg' },
   { n: '08', key: 'Garde-corps', name: 'Garde-corps', mats: ['Aluminium', 'Verre', 'Inox'], typesLabel: 'USAGES', types: ['Balcons et terrasses', 'Escaliers', 'Fenêtres basses'], desc: 'Des garde-corps sûrs et discrets, à barreaudage ou vitrés, adaptés à la façade et aux normes en vigueur.', img: '/assets/garde-corps-1.jpg', img2: '/assets/garde-corps-2.jpg' },
-  { n: '09', key: 'Pergola', name: 'Pergolas', mats: ['Aluminium'], typesLabel: 'TYPES', types: ['Pergolas adossées ou autoportantes', 'Toiture à lames orientables ou toile', 'Fermetures latérales et éclairage LED'], desc: 'Une pergola prolonge la maison vers l\'extérieur : terrasse protégée du soleil et de la pluie, utilisable plus longtemps dans l\'année. Nous étudions l\'implantation, la structure et les options sur place avant la pose.' },
-  { n: '10', key: 'Moustiquaire', name: 'Moustiquaires', mats: ['Aluminium', 'Toile'], typesLabel: 'TYPES', types: ['Enroulables', 'Plissées', 'À cadre fixe ou coulissant'], desc: 'Pour aérer sans laisser entrer les insectes : des moustiquaires sur mesure pour fenêtres, portes-fenêtres et baies vitrées, discrètes et simples à manœuvrer.' },
+  { n: '09', key: 'Pergola', name: 'Pergolas', mats: ['Aluminium'], typesLabel: 'TYPES', types: ['Pergolas adossées ou autoportantes', 'Toiture à lames orientables ou toile', 'Fermetures latérales et éclairage LED'], desc: 'Une pergola prolonge la maison vers l\'extérieur : terrasse protégée du soleil et de la pluie, utilisable plus longtemps dans l\'année. Nous étudions l\'implantation, la structure et les options sur place avant la pose.', img: '/assets/pergola1.jpg', img2: '/assets/pergola2.jpg' },
+  { n: '10', key: 'Moustiquaire', name: 'Moustiquaires', mats: ['Aluminium', 'Toile'], typesLabel: 'TYPES', types: ['Enroulables', 'Plissées', 'À cadre fixe ou coulissant'], desc: 'Pour aérer sans laisser entrer les insectes : des moustiquaires sur mesure pour fenêtres, portes-fenêtres et baies vitrées, discrètes et simples à manœuvrer.', img: '/assets/moustiquaire-enroulable.webp', img2: '/assets/moustiquaire-plissee.webp' },
 ];
+
+// Dimensions réelles des photos (largeur, hauteur) : chaque cadre prend les proportions de sa photo.
+const imageSizes: Record<string, [number, number]> = {
+  '/assets/baie-vitree.webp': [2000, 2000],
+  '/assets/cloture-1.jpg': [739, 500],
+  '/assets/fenetre-cuisine.webp': [1281, 1920],
+  '/assets/fenetre-produit.webp': [2422, 1332],
+  '/assets/garde-corps-1.jpg': [1024, 680],
+  '/assets/garde-corps-2.jpg': [1024, 700],
+  '/assets/moustiquaire-enroulable.webp': [1536, 1152],
+  '/assets/moustiquaire-plissee.webp': [600, 600],
+  '/assets/pergola1.jpg': [442, 260],
+  '/assets/pergola2.jpg': [615, 362],
+  '/assets/portail-1.jpg': [1024, 680],
+  '/assets/porte-entree-2.jpeg': [466, 659],
+  '/assets/porte-entree-alu.jpg': [1024, 1024],
+  '/assets/porte-fenetre.jpeg': [365, 547],
+  '/assets/porte-garage-1.jpg': [732, 534],
+  '/assets/porte-garage-2.jpg': [1600, 600],
+  '/assets/store-banne-1.jpg': [1536, 1024],
+  '/assets/store-banne-2b.jpg': [1800, 1005],
+  '/assets/volet-battant.jpg': [950, 565],
+  '/assets/volet-roulant.jpg': [1254, 1254],
+};
+
+const ratioOf = (src: string) => {
+  const size = imageSizes[src];
+  return size ? size[0] / size[1] : 4 / 3;
+};
 
 export default function MenuiseriesSection() {
   const [prodActive, setProdActive] = useState(0);
@@ -74,11 +103,11 @@ export default function MenuiseriesSection() {
             <article key={p.n} id={`produit-${p.n}`} style={{ scrollMarginTop: '120px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
               {p.img && (
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <div style={{ position: 'relative', flex: '1 1 0', minWidth: 0, height: 'clamp(320px, 32vw, 460px)', background: '#F3F7FB', borderRadius: '24px', overflow: 'hidden', order: i % 2 ? 2 : 1 }}>
-                  <img src={p.img} alt={`Photo : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+                <div style={{ position: 'relative', flex: `${ratioOf(p.img)} 1 0`, minWidth: 0, aspectRatio: String(ratioOf(p.img)), background: '#F3F7FB', borderRadius: '24px', overflow: 'hidden', order: i % 2 ? 2 : 1 }}>
+                  <img src={p.img} alt={`Photo : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
-                <div style={{ position: 'relative', flex: '1 1 0', minWidth: 0, height: 'clamp(320px, 32vw, 460px)', background: '#F3F7FB', borderRadius: '24px', overflow: 'hidden', order: i % 2 ? 1 : 2 }}>
-                  <img src={p.img2} alt={`Détail : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+                <div style={{ position: 'relative', flex: `${ratioOf(p.img2)} 1 0`, minWidth: 0, aspectRatio: String(ratioOf(p.img2)), background: '#F3F7FB', borderRadius: '24px', overflow: 'hidden', order: i % 2 ? 1 : 2 }}>
+                  <img src={p.img2} alt={`Détail : ${p.name}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
               )}
